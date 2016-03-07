@@ -1,4 +1,4 @@
-package party.invitation;
+package party.lib;
 
 public enum Gender {
     MALE("Mr "),
@@ -12,4 +12,5 @@ public enum Gender {
     public String toString() {
         return prefix.toString();
     }
+
 }

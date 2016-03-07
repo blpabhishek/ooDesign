@@ -1,0 +1,24 @@
+Build a library for printing label on invitation covers of birthday party.
+Data format:
+        firstName,lastName,gender,age,city,state,country
+Output:
+        Mr first last
+        Ms first last
+            or
+        Mr first, last
+        Ms first, last
+Males are prefixed with Mr and female are Ms
+
+The input will be provide in a file.
+
+-----------------------------------------------------------------------------
+It will be command line app.
+java PrintLabel -f /records.txt
+java PrintLabel -l /records.txt
+    -f --firstName
+    -l --lastName
+
+
+
+-----------------------------------------------------------------------------
+Command Shift L Indentation
