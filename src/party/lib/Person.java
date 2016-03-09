@@ -12,18 +12,25 @@ public class Person{
         this.age = age;
     }
     public Label getFirstLastNameLabel(){
-        Label lbl = new Label(gender+name.firstLastName());
-        return address.addCountry(lbl);
+       return new Label(gender+name.firstLastName());
     }
     public Label getLastFirstNameLabel(){
-        Label lbl =  new Label(gender+name.lastFirstName());
+        return new Label(gender+name.lastFirstName());
+    }
+    public Label addCountry(Label lbl){
         return address.addCountry(lbl);
     }
+    public Label addAge(Label lbl) {
+        lbl.add(new Label(","+age ));
+        return lbl;
+    }
 
-    public Label printLabel(String options) {
-        if(options.contains("f"))
-            return getFirstLastNameLabel();
-        return getLastFirstNameLabel();
+    public boolean isFrom(String parameters) {
+        return address.isFrom(parameters);
+    }
+
+    public boolean isGreater(Integer age) {
+        return (this.age > age);
     }
 
     @Override
@@ -39,21 +46,9 @@ public class Person{
     }
 
     @Override
-    public int hashCode() {
-        int result = name.hashCode();
-        result = 31 * result + address.hashCode();
-        result = 31 * result + gender.hashCode();
-        result = 31 * result + age.hashCode();
-        return result;
+    public String toString() {
+        return String.format("%s%s,%s,%d",gender,name,address,age);
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name=" + name +
-                ", address=" + address +
-                ", gender=" + gender +
-                ", age=" + age +
-                '}';
-    }
+
 }

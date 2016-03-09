@@ -13,12 +13,19 @@ The input will be provide in a file.
 
 -----------------------------------------------------------------------------
 It will be command line app.
-java PrintLabel -f /records.txt
-java PrintLabel -l /records.txt
+java party.main.PrintLabel -f -p /records.txt
+java party.main.PrintLabel -l -p /records.txt
     -f --firstName
     -l --lastName
+
+java party.main.PrintLabel -c Country -p /records.txt
+    -c --country
+java party.main.PrintLabel -a age -p /records.txt
+    -a --age
 
 
 
 -----------------------------------------------------------------------------
-Command Shift L Indentation
+Short Cuts Which I forget
+Command Shift L - Indentation
+Command Ctrl Up - Go toTest Files

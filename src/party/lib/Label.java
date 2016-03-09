@@ -31,9 +31,4 @@ public class Label {
 
         return true;
     }
-
-    @Override
-    public int hashCode() {
-        return label.hashCode();
-    }
 }

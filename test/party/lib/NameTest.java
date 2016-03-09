@@ -27,4 +27,9 @@ public class NameTest {
         Name second = new Name("Julius","Barrows");
         assertEquals(second,name);
     }
+
+    @Test
+    public void testNameShouldGiveStringRepresentation() throws Exception {
+        assertEquals("Julius Barrows",name.toString());
+    }
 }

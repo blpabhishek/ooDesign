@@ -7,6 +7,11 @@ public class RecordParser {
         String [] records =value.split(",");
         if(records.length!=7)
             throw new RuntimeException("Every record should be in [firstName,lastName,gender,age,city,state,country] form");
+        try {
+            Integer.parseInt(records[3]);
+        }catch (NumberFormatException nfe){
+            throw new NumberFormatException("Age should be an Integer");
+        }
         return createPerson(records);
     }
     private static Person createPerson(String[] str){
