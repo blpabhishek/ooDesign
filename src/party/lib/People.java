@@ -36,64 +36,22 @@ public class People {
         return filteredCollection;
     }
 
-    public Label printLabels(Format options, List<Filter> filters) {
-        String format = options.toString();
-        if(filters.size()!=0){
-            People people = applyFilter(filters);
-            if(format.contains("f"))
-                return printLabelsFirstLast(format,people);
-            return printLabelsLastFirst(format,people);
-        }
-        if(format.contains("f"))
-            return printLabelsFirstLast(format);
-        return printLabelsLastFirst(format);
-    }
-
-    private Label printLabelsLastFirst(String format) {
-        Label output = new Label("");
-        for (Person person : collection) {
-            Label lbl = person.getLastFirstNameLabel();
-            output.add(lbl);
-            output.addNewLine();
-        }
-        return output;
-    }
-
-    private Label printLabelsFirstLast(String format) {
-        Label output = new Label("");
-        for (Person person :collection) {
-            Label lbl = person.getLastFirstNameLabel();
-            output.add(lbl);
-            output.addNewLine();
-        }
-        return output;
-    }
-
-    private Label printLabelsLastFirst(String allOptions,People people) {
-        Label output = new Label("");
+    public Label printLabels(Format format, List<Filter> filters)  {
+        Label label = new Label("");
+        People people = this;
+        if(filters.size()!=0)
+            people = applyFilter(filters);
         for (Person person : people.collection) {
-            Label lbl = person.getLastFirstNameLabel();
-            if(allOptions.contains("c"))
-                person.addCountry(lbl);
-            if(allOptions.contains("a"))
-                person.addAge(lbl);
-            output.add(lbl);
-            output.addNewLine();
+            Label lbl = format.apply(person);
+            for (Filter filter : filters) {
+                if(filter.toString().equals("c"))
+                    person.addCountry(lbl);
+                if(filter.toString().equals("a"))
+                    person.addAge(lbl);
+            }
+            label.add(lbl);
+            label.addNewLine();
         }
-        return output;
+        return  label;
     }
-    private Label printLabelsFirstLast(String allOptions, People people) {
-        Label output = new Label("");
-        for (Person person : people.collection) {
-            Label lbl = person.getFirstLastNameLabel();
-            if(allOptions.contains("c"))
-                person.addCountry(lbl);
-            if(allOptions.contains("a"))
-                person.addAge(lbl);
-            output.add(lbl);
-            output.addNewLine();
-        }
-        return output;
-    }
-
 }

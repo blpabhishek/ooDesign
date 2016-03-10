@@ -22,4 +22,9 @@ public class PeopleTest {
     public void testShouldBeAbleToAddNewPerson() throws Exception {
         assertTrue(people.addPerson(person));
     }
+
+    @Test
+    public void testPrintLabels() throws Exception {
+
+    }
 }

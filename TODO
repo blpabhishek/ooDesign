@@ -34,3 +34,7 @@ java party.main.PrintLabel -a age -p /records.txt
 Short Cuts Which I forget
 Command Shift L - Indentation
 Command Ctrl Up - Go toTest Files
+-----------------------------------------------------------------------------
+ Got suggestion from Swami Ji
+  Record Parser should not be there,Holding static method.
+  Label class is not doing any  work

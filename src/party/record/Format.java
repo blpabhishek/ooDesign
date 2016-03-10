@@ -12,7 +12,7 @@ public class Format {
 
     public Label apply(Person person){
         if(options.equals("l"))
-            return person.getFirstLastNameLabel();
+            return person.getLastFirstNameLabel();
         return person.getFirstLastNameLabel();
     }
 
