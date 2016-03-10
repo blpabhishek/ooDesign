@@ -1,20 +1,30 @@
 package party.record;
 
+import party.lib.Label;
 import party.lib.Person;
 
-public class Format extends Filter {
+public class Format {
     private String options;
 
     public Format(String options) {
-        super(options,null);
         this.options = options;
+    }
+
+    public Label apply(Person person){
+        if(options.equals("l"))
+            return person.getFirstLastNameLabel();
+        return person.getFirstLastNameLabel();
+    }
+
+    @Override
+    public String toString() {
+        return options.toString();
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
 
         Format format = (Format) o;
 
@@ -25,8 +35,6 @@ public class Format extends Filter {
 
     @Override
     public int hashCode() {
-        int result = super.hashCode();
-        result = 31 * result + options.hashCode();
-        return result;
+        return options.hashCode();
     }
 }

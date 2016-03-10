@@ -1,6 +1,5 @@
 package party.record;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -19,34 +18,31 @@ public class ArgsParserTest {
 		assertEquals(expected,p.getFiles());
 	}
 
-
 	@Test
 	public void testGetOptionsReturnsAllTheOptions(){
 		String [] args ={"-f","-p","file"};
 		ArgsParser p = new ArgsParser(args);
-		List<Option> expected = new LinkedList<>();
-		expected.add(new Format("f"));
-		assertEquals(expected,p.getOptions());
+		assertEquals(new Format("f"),p.getFormat());
 	}
 	@Test
 	public void testGetOptionsReturnsAllTheOptionsGivenTogether(){
-		String [] args ={"-f","-a","20","-p","file"};
+		String [] args ={"-l","-a","20","-p","file"};
 		ArgsParser p = new ArgsParser(args);
-		List<Option> expected = new LinkedList<>();
-		expected.add(new Format("f"));
+		List<Filter> expected = new LinkedList<>();
 		expected.add(new Filter("a","20"));
-		assertEquals(expected,p.getOptions());
+		assertEquals(expected,p.getFilters());
+		assertEquals(new Format("l"),p.getFormat());
 	}
 	@Test
 	public void testGetOptionsReturnsAllTheOptionsGivenMixed(){
-		String [] args ={"-f","-c","country","-p","file"};
+		String [] args ={"-c","country","-p","file"};
 		ArgsParser p = new ArgsParser(args);
-		List<Option> expected = new LinkedList<>();
-		expected.add(new Format("f"));
+		List<Filter> expected = new LinkedList<>();
 		expected.add(new Filter("c","country"));
 		List<String> expectedFiles = new LinkedList<>();
 		expectedFiles.add("file");
-		assertEquals(expected,p.getOptions());
+		assertEquals(expected,p.getFilters());
 		assertEquals(expectedFiles,p.getFiles());
+		assertEquals(new Format("f"),p.getFormat());
 	}
 }

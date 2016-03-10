@@ -18,7 +18,7 @@ public class Address {
         return label;
     }
     protected boolean isFrom(String country){
-       return this.country==country;
+       return this.country.equals(country);
     }
 
     @Override

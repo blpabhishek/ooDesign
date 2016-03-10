@@ -23,6 +23,11 @@ java party.main.PrintLabel -c Country -p /records.txt
 java party.main.PrintLabel -a age -p /records.txt
     -a --age
 
+* filter the arguments from the commandLine
+* make the collection of people
+* apply format to people
+* apply filter to the records according to the options
+* print labels for each records
 
 
 -----------------------------------------------------------------------------

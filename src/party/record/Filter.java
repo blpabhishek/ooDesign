@@ -2,7 +2,7 @@ package party.record;
 
 import party.lib.Person;
 
-public class Filter implements Option {
+public class Filter {
     private String option;
     private String parameters;
 
@@ -12,9 +12,9 @@ public class Filter implements Option {
     }
 
     public boolean apply(Person person){
-        if(option =="c")
+        if(option.equals("c"))
             return person.isFrom(parameters);
-        if(option =="a")
+        if(option.equals("a"))
             return person.isGreater(Integer.parseInt(parameters));
         return false;
     }
