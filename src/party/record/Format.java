@@ -33,8 +33,4 @@ public class Format {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        return options.hashCode();
-    }
 }

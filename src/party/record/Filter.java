@@ -16,7 +16,7 @@ public class Filter {
             return person.isFrom(parameters);
         if(option.equals("a"))
             return person.isGreater(Integer.parseInt(parameters));
-        return false;
+        return true;
     }
 
     @Override
@@ -37,10 +37,4 @@ public class Filter {
         return true;
     }
 
-    @Override
-    public int hashCode() {
-        int result = option.hashCode();
-        result = 31 * result + (parameters != null ? parameters.hashCode() : 0);
-        return result;
-    }
 }

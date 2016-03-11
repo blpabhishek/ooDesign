@@ -38,3 +38,8 @@ Command Ctrl Up - Go toTest Files
  Got suggestion from Swami Ji
   Record Parser should not be there,Holding static method.
   Label class is not doing any  work
+
+-----------------------------------------------------------------------------
+Tried in Terminal
+java party.main.PrintLabel -p ~/Projects/JavaStuff/Invitation/data/records.csv  -a 35 -l
+java party.main.PrintLabel -p ~/Projects/JavaStuff/Invitation/data/records.csv -c Qatar -a 35
